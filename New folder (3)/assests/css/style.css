@@ -1,0 +1,200 @@
+:root {
+    --primary: #1abc9c; /* Mavi-yaşıl */
+    --secondary: #2c3e50; /* Tünd boz-mavi */
+}
+.masthead-avatar {
+    width: 15rem; /* Şəkilin enini təyin edir (təxminən 240px) */
+    height: 15rem; /* Şəkilin hündürlüyünü təyin edir */
+    border-radius: 50%; /* Dairəvi görünüş verir */
+    margin-top: 2rem;
+    /* Əlavə olaraq, SVG istifadə etdiyiniz üçün object-fit kömək edə bilər: */
+    object-fit: contain; 
+}
+
+
+/* Kiçik ekranlarda da ölçünün qorunması */
+@media (min-width: 992px) {
+    .masthead-avatar {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+/* Ümumi */
+body {
+    font-family: 'Lato', sans-serif; /* Google Fonts-dan əlavə edin */
+    color: var(--secondary);
+}
+
+.page-section {
+    padding: 6rem 0; /* Bölmələr üçün yuxarı/aşağı boşluq */
+}
+
+/* Navigasiya Zolağı (Navbar) */
+#mainNav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--secondary);
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+#mainNav .navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.75em;
+}
+
+#mainNav .nav-link {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Header (Əsas Səhifə) */
+header.masthead {
+    padding-top: calc(7rem + 104px); /* Navbar hündürlüyünü nəzərə alaraq */
+    padding-bottom: 6rem;
+    background-color: var(--primary);
+}
+
+.masthead-heading {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+}
+
+.masthead-subheading {
+    font-size: 1.25rem;
+}
+
+/* Ayırıcı Xətt (Divider) Stili */
+.divider-custom {
+    margin: 1.25rem 0 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 7rem;
+    height: 0.25rem;
+    background-color: var(--secondary);
+    border-radius: 1rem;
+}
+
+.divider-custom .divider-custom-icon {
+    color: var(--secondary);
+    font-size: 2rem;
+    margin: 0 1rem;
+}
+
+.divider-custom.divider-light .divider-custom-line {
+    background-color: #fff;
+}
+
+.divider-custom.divider-light .divider-custom-icon {
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+.copyright {
+    background-color: #1a252f; /* Footer-in ən alt hissəsi */
+}
+
+/* Sosial İkonlar */
+.btn-social {
+    border: 0.125rem solid #fff;
+    border-radius: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    color: #fff;
+}
+/* Navigasiya Zolağının Başlanğıc Stili (əvvəlki cavabdan) */
+#mainNav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--secondary);
+    transition: padding-top 0.3s, padding-bottom 0.3s; /* Rəvan keçid üçün */
+}
+
+/* Navigasiya Zolağının Kiçilmiş Vəziyyəti */
+#mainNav.navbar-shrink {
+    padding-top: 0.5rem; /* Yuxarı padding-i azaldır */
+    padding-bottom: 0.5rem; /* Aşağı padding-i azaldır */
+}
+
+/* Kiçilmiş vəziyyətdə Brend (başlıq) ölçüsünü də azalda bilərsiniz */
+#mainNav.navbar-shrink .navbar-brand {
+    font-size: 1.25em; /* Font ölçüsünü kiçildir */
+}
+html {
+    scroll-behavior: smooth; /* Səhifəni yumşaq sürüşdürür */
+}
+/* Navigasiya Linkləri (Normal Vəziyyət) */
+#mainNav .nav-link {
+    color: #fff; /* Ağ rəngdə qalır */
+    font-weight: 700;
+    transition: color 0.3s; /* Rəvan keçid üçün */
+}
+
+/* Navigasiya Linkləri (Hover Vəziyyəti) */
+#mainNav .nav-link:hover {
+    color: var(--primary); /* Hover zamanı əsas rəngə (mavi-yaşıla) çevrilir */
+}
+
+/* Navigasiya Zolağının Kiçilmiş Vəziyyəti üçün Hover Stili */
+#mainNav.navbar-shrink .nav-link:hover {
+    color: var(--primary); /* Kiçilmiş vəziyyətdə də eyni rəng */
+}
+:root {
+    /* Yeni Parlaq Mavi rəngi tətbiq edirik */
+    --primary: #0d6efd; /* Və ya sadəcə #007bff istifadə edə bilərsiniz */
+    --secondary: #2c3e50; /* Tünd boz-mavi (Navbar rəngi olduğu kimi qalır) */
+}
+
+/* ... qalan bütün stillər (Header, Hover və s.) avtomatik olaraq bu yeni rəngə uyğunlaşacaq ... */
+
+/* Bu stillər sizdə artıq olmalıdır: */
+.portfolio-item {
+    transition: transform 0.3s ease-in-out; /* Kartın böyümə animasiyası */
+}
+.portfolio-item-caption {
+    transition: opacity 0.25s ease;
+    opacity: 0; /* Normalda görünməzdir */
+}
+.portfolio-item:hover .portfolio-item-caption {
+    opacity: 1; /* Hover zamanı görünür */
+}
+.portfolio-item:hover {
+    transform: scale(1.03); /* Hover zamanı kiçik böyümə */
+}
+/* Normalda qat görünməz olmalıdır */
+.portfolio-item-caption {
+    /* ... yuxarıdakı mövqe stilləri ... */
+    opacity: 0; /* Görünməzlik */
+    transition: opacity 0.25s ease; /* Hamar keçid üçün */
+}
+/* 1. Valideyn Qatı (Şəkilin özü) */
+.portfolio-item {
+    position: relative; /* Çox vacibdir ki, overlay qatı buna görə mövqeyini hesablasın */
+    display: block; /* Əgər yoxdursa, əlavə edin */
+}
+
+/* 2. Övlad Qatı (Overlay və Plus) */
+.portfolio-item-caption {
+    position: absolute; /* Valideynə görə mövqeyini təyin edir */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Şəkilin üzərində olmasını təmin edir */
+    background-color: rgba(26, 188, 156, 0.9); /* Mavi overlay rəngi (şəffaflıq ilə) */
+}
