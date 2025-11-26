@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="az">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Müasir Elektron Saat</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <main class="app">
+        <header class="app-header">
+            <h1 class="title">Müasir Elektron Saat</h1>
+
+            <div class="controls" role="region" aria-label="Nəzarət bölməsi">
+                <label class="visually-hidden" for="tz">Timezone seç</label>
+                <select id="tz" aria-label="Timezone seçimi"></select>
+
+                <button id="toggle-format" aria-pressed="false" title="12/24 saat formatı">24s</button>
+                <button id="theme-toggle" aria-pressed="false" title="Tema dəyişdir">Tema</button>
+            </div>
+        </header>
+
+        <section class="clock-wrap" aria-live="polite">
+            <div class="analog" id="analog" role="img" aria-label="Analog saat">
+                <div class="dial" id="dial">
+                    <div class="hand hour" id="hour"></div>
+                    <div class="hand minute" id="minute"></div>
+                    <div class="hand second" id="second"></div>
+                    <div class="center-dot"></div>
+                </div>
+            </div>
+
+            <div class="digital" id="digital">
+                <div class="time" id="time">--:--:--</div>
+                <div class="date" id="date">----</div>
+            </div>
+        </section>
+
+        <section class="extras">
+            <form id="alarm-form" class="alarm-form" autocomplete="off">
+                <label for="alarm-time">Alarm vaxtı:</label>
+                <input id="alarm-time" type="time" />
+                <input id="alarm-label" type="text" placeholder="Etiket (optional)" />
+                <button type="submit">Alarm qoy</button>
+                <button type="button" id="clear-alarms">Hamısını sil</button>
+            </form>
+
+            <ul id="alarms-list" class="alarms-list" aria-live="polite"></ul>
+        </section>
+
+        <footer class="app-footer">© <span id="year"></span> Müasir Elektron Saat — Responsive & accessible</footer>
+    </main>
+
+    <script src="/script.js" defer></script>
+</body>
+
+</html>
