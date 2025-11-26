@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.room {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2c3e50 0%, #34495e 100%);
+  position: relative;
+  transition: background 0.5s ease;
+}
+
+.room.lit {
+  background: linear-gradient(to bottom, #f39c12 0%, #e67e22 100%);
+}
+
+.lamp-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rope {
+  width: 3px;
+  height: 200px;
+  background: #8b4513;
+  position: relative;
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+}
+
+.rope.pulled {
+  transform: translateY(30px);
+}
+
+.rope-end {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #654321;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rope-end:hover {
+  transform: translateX(-50%) scale(1.2);
+  background: #7d5a3a;
+}
+
+.lamp {
+  margin-top: -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lamp-top {
+  width: 80px;
+  height: 20px;
+  background: #34495e;
+  border-radius: 10px 10px 0 0;
+}
+
+.lamp-body {
+  width: 150px;
+  height: 120px;
+  background: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.bulb {
+  width: 40px;
+  height: 50px;
+  background: #ecf0f1;
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.bulb::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  background: #bdc3c7;
+  border-radius: 0 0 5px 5px;
+}
+
+.bulb.on {
+  background: #f1c40f;
+  box-shadow: 0 0 20px #f39c12, 0 0 40px #f39c12;
+}
+
+.light {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 150px solid rgba(241, 196, 15, 0);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.light.on {
+  border-top-color: rgba(241, 196, 15, 0.5);
+  opacity: 1;
+}
+
+.desk {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, #8b4513, #654321);
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes swing {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(2deg); }
+  75% { transform: translateX(-50%) rotate(-2deg); }
+}
+
+.lamp-container.swinging {
+  animation: swing 0.5s ease-in-out;
+}
