@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Maşın şəkilləri</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding:10px 16px; font-size:16px; cursor:pointer; }
+    #gallery {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .photo-box {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .photo-box img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>30 maşın şəkli (nümunə)</h1>
+
+  <button id="loadBtn">Şəkilləri gətir</button>
+
+  <div id="gallery"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
