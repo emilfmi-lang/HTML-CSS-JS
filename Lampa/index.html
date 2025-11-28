@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Interactive Table Lamp</title>
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #0a0e14 0%, #1a1f2e 100%);
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* ============================================
+           SCENE CONTAINER
+        ============================================ */
+        .scene {
+            position: relative;
+            width: 550px;
+            height: 750px;
+        }
+
+        /* Instruction text */
+        .instruction {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 15px;
+            text-align: center;
+            animation: pulseText 2.5s ease-in-out infinite;
+            user-select: none;
+            z-index: 100;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.85; }
+        }
+
+        /* ============================================
+           AMBIENT LIGHTING EFFECTS
+        ============================================ */
+        
+        /* Large ambient room glow when lamp is on */
+        .ambient-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 750px;
+            height: 750px;
+            background: radial-gradient(circle, 
+                rgba(255, 235, 160, 0.20) 0%,
+                rgba(255, 220, 130, 0.12) 25%,
+                rgba(255, 200, 100, 0.06) 45%,
+                transparent 65%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        /* Primary light bloom around bulb */
+        .light-bloom {
+            position: absolute;
+            bottom: 308px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, 
+                rgba(255, 245, 190, 0.95) 0%,
+                rgba(255, 235, 160, 0.65) 18%,
+                rgba(255, 220, 130, 0.4) 35%,
+                rgba(255, 200, 100, 0.2) 55%,
+                rgba(255, 180, 80, 0.08) 70%,
+                transparent 80%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            filter: blur(28px);
+        }
+
+        /* ============================================
+           LAMP ASSEMBLY
+        ============================================ */
+        
+        .lamp-assembly {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.7));
+        }
+
+        /* Lamp Base - Heavy circular bottom */
+        .lamp-base {
+            width: 150px;
+            height: 38px;
+            background: radial-gradient(ellipse at 50% 22%, 
+                #3d4f5f 0%, 
+                #2f3f4d 45%, 
+                #1e2730 100%);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 
+                0 10px 28px rgba(0, 0, 0, 0.6),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.5),
+                inset 0 4px 12px rgba(255, 255, 255, 0.12);
+        }
+
+        /* Decorative metal ring on base */
+        .lamp-base::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            right: 12px;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.28) 50%, 
+                transparent 100%);
+            border-radius: 50%;
+        }
+
+        /* Secondary highlight on base */
+        .lamp-base::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 25%;
+            right: 25%;
+            height: 3px;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.15), transparent);
+            border-radius: 50%;
+        }
+
+        /* Vertical metal stand/pole */
+        .lamp-stand {
+            width: 24px;
+            height: 215px;
+            background: linear-gradient(to right, 
+                #25323f 0%, 
+                #2f3f4d 35%, 
+                #3d4f5f 48%, 
+                #4a5d6f 52%, 
+                #3d4f5f 65%, 
+                #2f3f4d 80%,
+                #25323f 100%);
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            box-shadow: 
+                3px 0 14px rgba(0, 0, 0, 0.5),
+                inset 2px 0 6px rgba(255, 255, 255, 0.14),
+                inset -2px 0 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Highlight stripe on stand */
+        .lamp-stand::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 40%;
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                transparent 100%);
+        }
+
+        /* Bulb socket holder */
+        .socket {
+            width: 75px;
+            height: 32px;
+            background: linear-gradient(to bottom, 
+                #3d4f5f 0%, 
+                #2f3f4d 45%, 
+                #1e2730 100%);
+            position: absolute;
+            bottom: 238px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px 8px 3px 3px;
+            box-shadow: 
+                0 5px 18px rgba(0, 0, 0, 0.5),
+                inset 0 3px 6px rgba(255, 255, 255, 0.12),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Socket threading detail */
+        .socket::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 10px;
+            right: 10px;
+            height: 8px;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 2px
+            );
+        }
+
+        /* Light bulb */
+        .bulb {
+            width: 48px;
+            height: 48px;
+            background: radial-gradient(circle at 38% 35%, 
+                #ffffff 0%, 
+                #f8f5e8 35%, 
+                #ece4cc 65%, 
+                #d9ccb0 100%);
+            position: absolute;
+            bottom: 260px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 22px rgba(255, 235, 160, 0.35),
+                inset -6px -6px 12px rgba(0, 0, 0, 0.12),
+                inset 5px 5px 12px rgba(255, 255, 255, 0.35);
+            transition: all 0.45s ease;
+        }
+
+        /* Bulb highlight spot */
+        .bulb::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.7) 0%, 
+                rgba(255, 255, 255, 0.2) 60%, 
+                transparent 100%);
+            border-radius: 50%;
+        }
+
+        /* Lamp shade - Conical fabric shade */
+        .shade {
+            width: 260px;
+            height: 185px;
+            background: linear-gradient(to bottom, 
+                #f6e8ca 0%, 
+                #ead7b0 45%, 
+                #d7c09a 100%);
+            position: absolute;
+            bottom: 275px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.45),
+                inset 0 -25px 50px rgba(0, 0, 0, 0.18),
+                inset 0 12px 25px rgba(255, 255, 255, 0.12);
+            transition: all 0.45s ease;
+        }
+
+        /* Fabric weave texture */
+        .shade::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(0, 0, 0, 0.025) 1px,
+                    transparent 2px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(0, 0, 0, 0.02) 1px,
+                    transparent 3px
+                );
+            opacity: 0.6;
+        }
+
+        /* Inner glow effect (only visible when on) */
+        .shade-glow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(ellipse at center bottom, 
+                rgba(255, 240, 170, 0.98) 0%,
+                rgba(255, 230, 140, 0.75) 22%,
+                rgba(255, 215, 110, 0.5) 45%,
+                rgba(255, 195, 90, 0.25) 68%,
+                transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        /* ============================================
+           PULL CORD SYSTEM
+        ============================================ */
+        
+        /* Cord anchor point (where cord attaches) */
+        .cord-anchor {
+            position: absolute;
+            bottom: 233px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle at 35% 35%, 
+                #4a5d6f 0%, 
+                #3d4f5f 45%, 
+                #2f3f4d 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.5),
+                inset -1px -1px 3px rgba(0, 0, 0, 0.4),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        /* Cord wrapper for rotation transform */
+        .cord-wrapper {
+            position: absolute;
+            bottom: 233px;
+            left: 50%;
+            transform-origin: top center;
+            pointer-events: none;
+            z-index: 5;
+            transition: transform 0.05s ease-out;
+        }
+
+        /* The string/cord itself */
+        .cord-string {
+            width: 3px;
+            height: 95px;
+            background: linear-gradient(to right, 
+                #0f0f0f 0%, 
+                #2a2a2a 35%, 
+                #3f3f3f 50%, 
+                #2a2a2a 65%, 
+                #0f0f0f 100%);
+            margin: 0 auto;
+            box-shadow: 
+                1px 0 4px rgba(0, 0, 0, 0.7),
+                inset 1px 0 2px rgba(255, 255, 255, 0.15);
+            position: relative;
+            transition: height 0.3s ease;
+        }
+
+        /* Wooden bead/handle at end of cord */
+        .cord-handle {
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle at 38% 35%, 
+                #b89a7d 0%, 
+                #a0826d 35%, 
+                #8b7355 65%, 
+                #6b563f 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.6),
+                inset -3px -3px 6px rgba(0, 0, 0, 0.5),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.35);
+            cursor: grab;
+            pointer-events: all;
+            transition: transform 0.15s ease;
+        }
+
+        .cord-handle:hover {
+            transform: translateX(-50%) scale(1.12);
+        }
+
+        .cord-handle:active {
+            cursor: grabbing;
+            transform: translateX(-50%) scale(1.03);
+        }
+
+        /* Highlight spot on wooden bead */
+        .cord-handle::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 7px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 50%;
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Wood grain texture on bead */
+        .cord-handle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0px,
+                    rgba(0, 0, 0, 0.08) 1px,
+                    transparent 2px
+                );
+            opacity: 0.5;
+        }
+
+        /* ============================================
+           GROUND SHADOW
+        ============================================ */
+        
+        .ground-shadow {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 170px;
+            height: 35px;
+            background: radial-gradient(ellipse, 
+                rgba(0, 0, 0, 0.55) 0%, 
+                rgba(0, 0, 0, 0.25) 50%, 
+                transparent 75%);
+            border-radius: 50%;
+            filter: blur(12px);
+        }
+
+        /* ============================================
+           STATUS TEXT
+        ============================================ */
+        
+        .status {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            font-weight: 500;
+            user-select: none;
+            transition: color 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           ACTIVE STATE (LAMP ON)
+        ============================================ */
+        
+        .lamp-assembly.lamp-on .shade-glow {
+            opacity: 1;
+        }
+
+        .lamp-assembly.lamp-on .light-bloom {
+            opacity: 1;
+        }
+
+        .lamp-assembly.lamp-on .ambient-glow {
+            opacity: 1;
+        }
+
+        .lamp-assembly.lamp-on .bulb {
+            background: radial-gradient(circle at 38% 35%, 
+                #fffef8 0%, 
+                #fffae5 28%, 
+                #ffecb8 55%, 
+                #ffe595 80%, 
+                #ffd870 100%);
+            box-shadow: 
+                0 0 38px rgba(255, 245, 180, 0.95),
+                0 0 65px rgba(255, 235, 150, 0.65),
+                0 0 90px rgba(255, 220, 120, 0.35),
+                inset -4px -4px 10px rgba(255, 210, 110, 0.4),
+                inset 4px 4px 10px rgba(255, 255, 240, 0.3);
+        }
+
+        .lamp-assembly.lamp-on .shade {
+            background: linear-gradient(to bottom, 
+                #fef4d8 0%, 
+                #f5e3bf 45%, 
+                #e5d0a8 100%);
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.35),
+                inset 0 -25px 50px rgba(255, 230, 130, 0.28),
+                inset 0 12px 25px rgba(255, 245, 180, 0.25);
+        }
+
+        .lamp-assembly.lamp-on ~ .status {
+            color: rgba(255, 235, 160, 0.85);
+            text-shadow: 0 0 10px rgba(255, 230, 150, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <!-- Instruction text -->
+        <div class="instruction">Drag the cord down to toggle the lamp</div>
+
+        <!-- Ambient room glow -->
+        <div class="ambient-glow"></div>
+
+        <!-- Light bloom effect -->
+        <div class="light-bloom"></div>
+
+        <!-- Lamp assembly container -->
+        <div class="lamp-assembly">
+            <!-- Lamp shade with inner glow -->
+            <div class="shade">
+                <div class="shade-glow"></div>
+            </div>
+
+            <!-- Bulb socket -->
+            <div class="socket"></div>
+
+            <!-- Light bulb -->
+            <div class="bulb"></div>
+
+            <!-- Cord anchor point -->
+            <div class="cord-anchor"></div>
+
+            <!-- Pull cord system -->
+            <div class="cord-wrapper">
+                <div class="cord-string">
+                    <div class="cord-handle"></div>
+                </div>
+            </div>
+
+            <!-- Vertical stand -->
+            <div class="lamp-stand"></div>
+
+            <!-- Base -->
+            <div class="lamp-base"></div>
+        </div>
+
+        <!-- Ground shadow -->
+        <div class="ground-shadow"></div>
+
+        <!-- Status text -->
+        <div class="status">Lamp is OFF</div>
+    </div>
+
+    <script>
+        // ============================================
+        // DOM ELEMENT REFERENCES
+        // ============================================
+        const lampAssembly = document.querySelector('.lamp-assembly');
+        const cordWrapper = document.querySelector('.cord-wrapper');
+        const cordString = document.querySelector('.cord-string');
+        const cordHandle = document.querySelector('.cord-handle');
+        const statusText = document.querySelector('.status');
+
+        // ============================================
+        // STATE VARIABLES
+        // ============================================
+        let isLampOn = false;           // Current lamp state (on/off)
+        let isDragging = false;         // Is user currently dragging the cord?
+        let dragStartY = 0;             // Y position where drag started
+        let currentPullDistance = 0;    // How far cord has been pulled
+
+        // Physics simulation variables
+        let angle = 0;                  // Current swing angle in degrees
+        let angularVelocity = 0;        // Rate of angle change (speed)
+        let targetAngle = 0;            // Target angle for smooth interpolation
+
+        // ============================================
+        // PHYSICS CONSTANTS
+        // ============================================
+        const PULL_THRESHOLD = 42;      // Minimum pixels to pull to toggle lamp
+        const GRAVITY = 0.38;            // Gravity strength affecting pendulum
+        const DAMPING = 0.93;            // Energy loss per frame (air resistance)
+        const SPRING_STRENGTH = 0.13;    // Force pulling cord back to center
+        const MAX_ANGLE = 27;            // Maximum swing angle in degrees
+        const MAX_STRETCH = 28;          // Maximum cord extension in pixels
+
+        // ============================================
+        // LAMP TOGGLE FUNCTION
+        // ============================================
+        function toggleLamp() {
+            isLampOn = !isLampOn;
+            
+            // Update visual state
+            if (isLampOn) {
+                lampAssembly.classList.add('lamp-on');
+                statusText.textContent = 'Lamp is ON';
+            } else {
+                lampAssembly.classList.remove('lamp-on');
+                statusText.textContent = 'Lamp is OFF';
+            }
+
+            // Add momentum to cord swing when toggling
+            angularVelocity += 13;
+        }
+
+        // ============================================
+        // DRAG START - Mouse/Touch Down
+        // ============================================
+        function handleDragStart(clientY) {
+            isDragging = true;
+            dragStartY = clientY;
+            currentPullDistance = 0;
+            
+            // Remove CSS transition for instant response
+            cordWrapper.style.transition = 'none';
+            cordString.style.transition = 'none';
+        }
+
+        // ============================================
+        // DRAG MOVE - Mouse/Touch Move
+        // ============================================
+        function handleDragMove(clientY) {
+            if (!isDragging) return;
+
+            // Calculate how far down the cord has been pulled
+            const deltaY = clientY - dragStartY;
+            currentPullDistance = Math.max(0, deltaY); // Only allow downward pulls
+
+            // Convert pull distance to swing angle (limited to MAX_ANGLE)
+            const pullAngle = Math.min((currentPullDistance / 3.2), MAX_ANGLE);
+            targetAngle = pullAngle;
+
+            // Visually stretch the cord based on pull distance
+            const stretch = Math.min(currentPullDistance * 0.28, MAX_STRETCH);
+            cordString.style.height = (95 + stretch) + 'px';
+
+            // Apply angle to cord immediately during drag
+            angle = targetAngle;
+            cordWrapper.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+        }
+
+        // ============================================
+        // DRAG END - Mouse/Touch Up
+        // ============================================
+        function handleDragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            // Check if cord was pulled far enough to toggle the lamp
+            if (currentPullDistance >= PULL_THRESHOLD) {
+                toggleLamp();
+                // Add extra swing momentum for satisfying feedback
+                angularVelocity = 16;
+            } else {
+                // Add gentle swing even if toggle threshold wasn't met
+                angularVelocity = 9;
+            }
+
+            // Smoothly return cord to original length
+            cordString.style.transition = 'height 0.35s ease';
+            cordString.style.height = '95px';
+
+            // Reset target angle to center position
+            targetAngle = 0;
+
+            // Re-enable smooth transitions
+            cordWrapper.style.transition = 'transform 0.05s ease-out';
+        }
+
+        // ============================================
+        // MOUSE EVENT LISTENERS
+        // ============================================
+        cordHandle.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            handleDragStart(e.clientY);
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                handleDragMove(e.clientY);
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            handleDragEnd();
+        });
+
+        // ============================================
+        // TOUCH EVENT LISTENERS (Mobile Support)
+        // ============================================
+        cordHandle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            handleDragStart(e.touches[0].clientY);
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                handleDragMove(e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', function() {
+            handleDragEnd();
+        });
+
+        // ============================================
+        // PHYSICS ANIMATION LOOP (PENDULUM SIMULATION)
+        // ============================================
+        function animatePhysics() {
+            // Only apply physics when not actively dragging
+            if (!isDragging) {
+                // Spring force: pulls cord back toward center (target angle)
+                const springForce = (targetAngle - angle) * SPRING_STRENGTH;
+                angularVelocity += springForce;
+
+                // Gravity force: creates pendulum swinging effect
+                // sin(angle) converts angle to downward force
+                const gravityForce = Math.sin(angle * Math.PI / 180) * GRAVITY;
+                angularVelocity -= gravityForce;
+
+                // Damping: simulates air resistance, gradually slows motion
+                angularVelocity *= DAMPING;
+
+                // Update angle based on current velocity
+                angle += angularVelocity;
+
+                // Stop animation when motion becomes negligible
+                if (Math.abs(angularVelocity) < 0.04 && Math.abs(angle) < 0.08) {
+                    angle = 0;
+                    angularVelocity = 0;
+                }
+
+                // Apply rotation transform to cord
+                cordWrapper.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+            }
+
+            // Continue animation loop at 60fps
+            requestAnimationFrame(animatePhysics);
+        }
+
+        // ============================================
+        // INITIALIZE APPLICATION
+        // ============================================
+        
+        // Start the physics animation loop
+        animatePhysics();
+
+        // Simple click toggle as fallback (for accessibility)
+        cordHandle.addEventListener('click', function(e) {
+            // Only trigger on simple click, not after dragging
+            if (currentPullDistance < 8) {
+                toggleLamp();
+                angularVelocity = 11; // Add small swing effect
+            }
+        });
+
+        // Prevent context menu on right-click
+        cordHandle.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Log successful initialization
+        console.log('🔦 Realistic Interactive Lamp initialized successfully!');
+        console.log('💡 Drag the cord down to toggle the lamp on/off');
+    </script>
+</body>
+</html>
