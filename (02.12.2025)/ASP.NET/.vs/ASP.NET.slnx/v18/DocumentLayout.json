@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD195B56-C347-4C13-8599-1FE580BB40C2}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|c:\\users\\emilfmi\\desktop\\html-css-js\\(02.12.2025)\\asp.net\\asp.net\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B127293-295E-FECE-73BD-4881D1066019}|ASP.NET\\ASP.NET.csproj|solutionrelative:asp.net\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +38,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,14 +56,14 @@
               "RelativeDocumentMoniker": "ASP.NET\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ASP.NET\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-02T13:29:44.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "ASP.NET\\Views\\_ViewStart.cshtml",
@@ -68,13 +76,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ASP.NET\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ASP.NET\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T13:19:43.56Z",
               "EditorCaption": ""
@@ -87,14 +95,14 @@
               "RelativeDocumentMoniker": "ASP.NET\\Program.cs",
               "ToolTip": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Program.cs",
               "RelativeToolTip": "ASP.NET\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T13:16:55.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "ASP.NET\\Views\\_ViewImports.cshtml",
@@ -107,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ASP.NET\\Views\\Shared\\_Layout.cshtml",
@@ -120,13 +128,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Car.cs",
               "DocumentMoniker": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Models\\Car.cs",
               "RelativeDocumentMoniker": "ASP.NET\\Models\\Car.cs",
               "ToolTip": "C:\\Users\\emilfmi\\Desktop\\HTML-CSS-JS\\(02.12.2025)\\ASP.NET\\ASP.NET\\Models\\Car.cs",
               "RelativeToolTip": "ASP.NET\\Models\\Car.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T13:13:40.732Z",
               "EditorCaption": ""

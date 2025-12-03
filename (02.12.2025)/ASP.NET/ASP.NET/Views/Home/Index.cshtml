@@ -1,6 +1,7 @@
-﻿@{
-    Layout = null;
+﻿@model Car
+@{
+    ViewData["Title"] = "Home Page";
 }
-<h6>Sagol</h6>
-
-<p>Bu bir ASP.NET Core MVC uygulamasının ana sayfa görünümüdür.</p>
+<h1> @ViewData["CarId"] </h1>
+<p> @TempData["CarId"] </p>
+<p> @ViewBag.CarId </p>
